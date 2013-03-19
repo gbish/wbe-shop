@@ -1,0 +1,21 @@
+<% title "Search results for '#{params[:term]}'" %>
+
+<h2>Search Results</h2>
+
+<% if @products.empty? %>
+	<p>No products met your search criteria.</p>
+<% else %>
+<div class="listing">
+	<% @products.each do |product| %>
+		<div>
+			<div><%= link_to(image_tag(product.image, width: '160', alt: product.title, title: product.title), product) %></div>
+			<p class="card_name"><%= link_to product.title, product, title: product.title %></p>
+			<span class="price"><%= number_to_currency product.price %></span>
+			<span><%= button_to 'Add to Basket', line_items_path(product_id: product), remote: true %></span>
+		</div>
+	<% end %>
+</div>
+<div class="pagi">
+	<%= paginate @products %>
+</div>
+<% end %>

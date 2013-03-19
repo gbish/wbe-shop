@@ -1,0 +1,86 @@
+// Place all the styles related to the carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.carts {
+	table {
+		width: 100%;
+		tr:nth-child(odd) {
+			background: #eee;
+		}
+		tr.total {
+			background: #fff;
+			border-top: 1px solid #ccc;
+			td:first-child {
+				text-align: right;
+			}
+		}
+		td {
+			padding: 5px;
+		}
+		.qty {
+			width: 8%;
+		}
+		.title {
+			width: 80%;
+		}
+		.price {
+			width: 12%;
+		}
+		.total_cell {
+			font-weight: bold;
+		}
+	}
+}
+
+#cart {
+	margin: 10px 0;
+	overflow: hidden;
+	h2 {
+		font-size: 18px;
+	}
+	table {
+		width: 100%;
+		border-top: 1px solid #ccc;
+		font-size: smaller;
+		tr.total {
+			border-top: 1px solid #ccc;
+		}
+		tr {
+			background: #fff;
+		}
+		td {
+			padding: 5px 0;
+			text-align: left;
+		}
+		.total_cell {
+			font-weight: bold;
+		}
+	}
+	input[type="submit"] {
+		width: 120px;
+		text-transform: uppercase;
+		color: #333;
+		float: left;
+		border: 1px solid #ccc;	
+		padding: 5px 0;
+		&:hover {
+			color: #DB873E;
+		}
+	}
+	#checkout_button {
+		width: 120px;
+		border-right: 0;
+	}
+}
+
+#left #cart {
+	margin-top: 0;
+	h2 {
+		font-size: 16px;
+		border-top: 1px solid #ccc;
+		background: #f3f3f3;
+		padding: 10px 5px;
+//		line-height: 25px;
+	}
+}

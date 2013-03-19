@@ -1,0 +1,19 @@
+<% title "MTG Mythics" %>
+
+<div class="listing">
+	<% @products.each do |product| %>
+		<div>
+			<div><%= link_to(image_tag(product.image, width: '160', alt: product.title, title: product.title), product) %></div>
+			<p class="card_name"><%= link_to product.title, product, title: product.title %></p>
+			<div class="cta">
+				<span class="price"><%= number_to_currency product.price %></span>
+				<% if user_signed_in? %>
+					<span><%= button_to 'Add to Basket', line_items_path(product_id: product), :class => 'button', remote: true %></span>
+				<% end %>
+			</div>
+		</div>
+	<% end %>
+</div>
+<div class="pagi">
+	<%= paginate @products %>
+</div>

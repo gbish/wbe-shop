@@ -1,0 +1,25 @@
+<% title(@expansion.name) %>
+
+<header>
+	<span><%= image_tag @expansion.logo_url.to_s %></span>
+	<h1><%= @expansion.name %></h1>
+	<span>
+		<p>Expansion Code: <%= @expansion.abbreviation %></p>
+		<p>Release: <%= @expansion.release_date %></p>
+	</span>
+</header>
+
+<div class="listing">
+	<% @products.each do |product| %>
+		<div>
+			<div><%= link_to(image_tag(product.image, width: '160', alt: product.title, title: product.title), product) %></div>
+			<p class="card_name"><%= link_to product.title, product, title: product.title %></p>
+			<span class="price"><%= number_to_currency product.price %></span><span><%= link_to 'Buy', product, class: 'button' %></span>
+		</div>
+	<% end %>
+</div>
+<div class="pagi">
+	<%= paginate @products %>
+</div>
+
+

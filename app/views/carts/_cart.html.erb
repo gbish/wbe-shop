@@ -1,0 +1,12 @@
+<h2>Your Basket</h2>
+
+<table>
+	<%= render(cart.line_items) %>
+	<tr class="total">
+		<td colspan="2">Total</td>
+		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
+	</tr>
+</table>
+
+<%= button_to 'Checkout', new_order_path, id: 'checkout_button', method: :get %>
+<%= button_to 'Empty Basket', cart, id: 'empty_basket_button', method: :delete, confirm: "Are you sure?" %>

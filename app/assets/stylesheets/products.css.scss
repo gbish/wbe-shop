@@ -1,0 +1,125 @@
+// Place all the styles related to the Products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.products {
+	table {
+		border-bottom: 1px solid #ccc;
+		.image {
+			text-align: center;
+			width: 60px;
+		}
+	}
+	tr:first-child {
+		border-bottom: 1px solid #ccc;
+		th {
+			padding: 10px 0;
+			text-align: center;
+			font-weight: bold;
+		}
+	}
+}
+
+.listing {
+	border-top: 1px solid #ccc;
+	overflow: hidden;
+	a {
+		text-decoration: none;
+		color: #333;
+		&:hover {
+			color: #DB873E;
+		}
+	}
+	.card_name {
+		text-transform: uppercase;
+		font-size: 14px;
+		min-height: 28px;
+	}
+	.price {
+		font-weight: bold;
+		font-size: 20px;
+		margin-right: 10px;
+		line-height: 30px;
+	}
+	&> div {
+		padding: 10px 0;
+		width: 33.3%;
+		float: left;
+		border-bottom: 1px solid #ccc;
+		&> div {
+			text-align: center;
+		}
+	}
+	.cta {
+		text-align: left;
+		overflow: hidden;
+		span {
+			float: left;
+		}
+	}
+	table {
+		width: 100%;
+	}
+	tr:nth-child(odd) {
+		background: #eee;
+	}
+	td {
+		padding: 5px;
+	}
+}
+
+.product {
+	overflow: hidden;
+	.image, .details {
+		float: left;
+	}
+	.image {
+		width: 225px;
+		margin-right: 10px;
+	}
+	.details {
+		width: 465px;
+	}
+	.buying {
+		border-top: 1px solid #ccc;
+		overflow: hidden;
+		&> div {
+			float: left;
+		}
+		div > p {
+			font-size: 14px;
+			line-height: 24px;
+			a {
+				color: #333;
+				&:hover {
+					color: #DB873E;
+				}
+			}
+		}
+	}
+	.price {
+		text-transform: uppercase;
+//		font-weight: bold;
+		float: left;
+		font-size: 24px;
+		margin-right: 10px;
+		span {
+			color: #DB873E;
+		}
+	}
+	header {
+		height: auto;
+		border-bottom: 1px solid #ccc;
+	}
+	h1, h2 {
+		text-transform: uppercase;
+		font-weight: lighter;
+	}
+	h1 {
+		font-size: 36px;
+	}
+	h2 {
+		font-size: 24px;
+		color: #999;
+	}
+}

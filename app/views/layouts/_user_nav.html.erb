@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+	<span><span>Signed in as:</span> <%= current_user.email %></span>
+<% end %>
+<ul>
+	<% if !admin_signed_in? %>
+		<li><%= link_to 'About', :about %></li>
+		<% if !user_signed_in? %>
+			<li><%= link_to "Create Account", new_user_registration_path %></li>
+			<li><%= link_to "Sign In", new_user_session_path %></li>
+		<% else %>
+			<li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+			<!-- <li><a href="#">My Account</a></li> -->
+			<%= content_tag(:li, link_to("My Basket", cart_path(@cart))) %>
+			<li><%= link_to 'Checkout', new_order_path %></li>
+		<% end %>
+	<% end %>
+	<% if admin_signed_in? %>
+		<li><a href="#">Orders</a></li>
+		<li><%= link_to "Categories", categories_path %></li>
+		<li><%= link_to "Expansions", expansions_path %></li>
+		<li><%= link_to "Products", products_path %></li>
+		<li><%= link_to "Sign Out (Admin)", destroy_admin_session_path, method: :delete %></li>
+	<% end %>
+</ul>

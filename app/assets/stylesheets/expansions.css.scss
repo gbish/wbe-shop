@@ -1,0 +1,26 @@
+// Place all the styles related to the Expansions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.expansions {
+	#main > header {
+		overflow: hidden;
+		h1, span {
+			float: left;
+			margin: 0;
+		}
+		span {
+			padding: 0 10px;
+			font-weight: lighter;
+			color: #999;
+			text-transform: uppercase;
+			p {
+				margin: 0;
+				font-size: 15px;
+			}
+			img {
+				max-height: 30px;
+			}
+		}
+	}
+}
