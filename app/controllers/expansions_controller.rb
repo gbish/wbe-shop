@@ -3,7 +3,7 @@ class ExpansionsController < ApplicationController
   # GET /expansions
   # GET /expansions.json
   def index
-    @expansions = Expansion.all
+    @expansions = Expansion.page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb

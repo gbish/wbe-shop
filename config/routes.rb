@@ -1,11 +1,15 @@
 Shop::Application.routes.draw do
   match 'search' => 'search#index', :as => :search
 
-  resources :orders, :line_items
+  resources :line_items
   
   resources :carts, path: "basket"
 
   devise_for :admins, :users
+  
+  resources :orders do
+    get ':id/page/:page', :action => :show, :on => :collection
+  end
 
   resources :expansions do
     get ':id/page/:page', :action => :show, :on => :collection

@@ -2,24 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.products {
-	table {
-		border-bottom: 1px solid #ccc;
-		.image {
-			text-align: center;
-			width: 60px;
-		}
-	}
-	tr:first-child {
-		border-bottom: 1px solid #ccc;
-		th {
-			padding: 10px 0;
-			text-align: center;
-			font-weight: bold;
-		}
-	}
-}
-
 .listing {
 	border-top: 1px solid #ccc;
 	overflow: hidden;
@@ -99,7 +81,6 @@
 	}
 	.price {
 		text-transform: uppercase;
-//		font-weight: bold;
 		float: left;
 		font-size: 24px;
 		margin-right: 10px;
@@ -117,6 +98,7 @@
 	}
 	h1 {
 		font-size: 36px;
+		border: 0;
 	}
 	h2 {
 		font-size: 24px;

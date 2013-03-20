@@ -18,8 +18,10 @@
 			</div>
 			<div class="search">
 				<%= form_tag search_path, method: :get do %>
-					<%= text_field_tag :term, params[:term], id: 'autocomplete' %>
-					<%= submit_tag "Search", name: nil %>
+					<div>
+						<%= text_field_tag :term, params[:term], id: 'autocomplete' %>
+						<%= submit_tag "Search", id: 'search_button', name: nil %>
+					</div>
 				<% end %>
 			</div>
 		</section>

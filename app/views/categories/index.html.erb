@@ -1,23 +1,28 @@
+<% title 'Listing Categories' %>
+
 <h1>Listing categories</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p><%= link_to 'Add New Category', new_category_path, :class => 'button' %></p>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="listing">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<br />
-
-<%= link_to 'New Category', new_category_path %>
+	<% @categories.each do |category| %>
+	  <tr>
+	    <td><%= category.name %></td>
+	    <td><%= link_to 'Show', category %></td>
+	    <td><%= link_to 'Edit', edit_category_path(category) %></td>
+	    <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+<div class="pagi">
+	<%= paginate @categories %>
+</div>

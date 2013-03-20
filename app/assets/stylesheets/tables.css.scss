@@ -1,0 +1,21 @@
+.products, .orders, .categories, .expansions {
+	table {
+		border-bottom: 1px solid #ccc;
+		.image {
+			text-align: center;
+			width: 60px;
+		}
+	}
+	tr:first-child {
+		border-bottom: 1px solid #ccc;
+		th {
+			padding: 10px 0;
+			text-align: center;
+			font-weight: bold;
+		}
+	}
+}
+
+h1 + .listing {
+	margin-top: 10px;
+}

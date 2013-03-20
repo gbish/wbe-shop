@@ -1,27 +1,32 @@
+<% title 'Listing Expansions' %>
+
 <h1>Listing expansions</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Abbreviation</th>
-		<th>Release Date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<p><%= link_to 'Add New Expansion', new_expansion_path, :class => 'button' %></p>
 
-<% @expansions.each do |expansion| %>
-  <tr>
-    <td><%= expansion.name %></td>
-    <td><%= expansion.abbreviation %></td>
-		<td><%= expansion.release_date %></td>
-    <td><%= link_to 'Show', expansion %></td>
-    <td><%= link_to 'Edit', edit_expansion_path(expansion) %></td>
-    <td><%= link_to 'Destroy', expansion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="listing">
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Abbreviation</th>
+			<th>Release Date</th>
+	    <th></th>
+	    <th></th>
+	    <th></th>
+	  </tr>
 
-<br />
-
-<%= link_to 'New Expansion', new_expansion_path %>
+	<% @expansions.each do |expansion| %>
+	  <tr>
+	    <td><%= expansion.name %></td>
+	    <td><%= expansion.abbreviation %></td>
+			<td><%= expansion.release_date %></td>
+	    <td><%= link_to 'Show', expansion %></td>
+	    <td><%= link_to 'Edit', edit_expansion_path(expansion) %></td>
+	    <td><%= link_to 'Destroy', expansion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>
+<div class="pagi">
+	<%= paginate @expansions %>
+</div>
