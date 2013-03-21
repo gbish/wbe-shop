@@ -35,3 +35,7 @@ gem 'jquery-rails'
 
 # unicorn webserver gem
 gem 'unicorn'
+
+gem 'capistrano'
+
+gem 'capistrano-ext'
