@@ -1,3 +1,5 @@
+default_run_options[:pty] = true
+
 set :application, "wbe-shop"
 
 set :scm, :git
@@ -5,6 +7,8 @@ set :repository,  "git@github.com:gbish/wbe-shop.git"
 set :scm_passphrase, ""
 
 set :user, "web"
+
+set :ssh_options, { :forward_agent => true }
 
 require 'capistrano/ext/multistage'
 
