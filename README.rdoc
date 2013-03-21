@@ -10,3 +10,20 @@ marking.
 * Sunspot - Solr power search
 * Kaminari - Pagination
 * CarrierWave - File uploads
+
+== Files of Interest
+
+* /app/assets/javascripts/search.js
+* /app/controllers/application_controller.rb
+* /app/controllers/search_controller.rb
+* /app/controllers/line_items_controller.rb
+* /app/controllers/orders_controller.rb
+* /app/controllers/products_controller.rb
+* /app/helpers/application_helper.rb
+* /app/models/* (except category and expansion)
+* /app/uploaders/*
+* /app/views/layouts/application.html.erb
+* /app/views/search/index.html.erb
+* /app/views/line_items/create.js.erb
+* /app/views/line_items/_line_item.html.erb
+* /app/views/carts/_cart.html.erb

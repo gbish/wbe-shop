@@ -1,6 +1,8 @@
 <h2>Your Basket</h2>
 
 <table>
+	<!-- renders the _line_item partial from the line_items set of views,
+	looping for each item in the cart -->
 	<%= render(cart.line_items) %>
 	<tr class="total">
 		<td colspan="2">Total</td>
