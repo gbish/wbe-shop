@@ -39,3 +39,5 @@ gem 'unicorn'
 gem 'capistrano'
 
 gem 'capistrano-ext'
+
+gem 'mysql2'

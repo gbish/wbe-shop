@@ -1,3 +1,5 @@
+require 'bundler/capistrano'
+
 default_run_options[:pty] = true
 
 set :application, "wbe-shop"
@@ -7,6 +9,8 @@ set :repository,  "git@github.com:gbish/wbe-shop.git"
 set :scm_passphrase, ""
 
 set :user, "web"
+
+set :use_sudo, false
 
 set :ssh_options, { :forward_agent => true }
 
