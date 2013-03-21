@@ -1,3 +1,5 @@
+<!-- this template determines what kind of user is logged in (admin/user)
+and shows the appropriate links based on their privilege -->
 <% if user_signed_in? %>
 	<span><span>Signed in as:</span> <%= current_user.email %></span>
 <% end %>

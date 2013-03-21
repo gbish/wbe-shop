@@ -1,6 +1,6 @@
+# This is another generic controller
+
 class OrdersController < ApplicationController
-  # GET /orders
-  # GET /orders.json
   def index
     @orders = Order.page(params[:page]).per(15)
 
@@ -10,8 +10,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/1
-  # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
 
@@ -21,10 +19,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/new
-  # GET /orders/new.json
   def new
     @cart = current_cart
+    # When creating a new order, this check is performed to make
+    # sure there are items in the cart. If there aren't the user is re-directed
     if @cart.line_items.empty?
       redirect_to home_index_url, notice: "Your basket is empty"
       return
@@ -38,15 +36,14 @@ class OrdersController < ApplicationController
     end
   end
 
-  # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
   end
 
-  # POST /orders
-  # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    # calls a method from the model on the order object and passes the
+    # current cart object
     @order.add_line_items_from_cart(current_cart)
 
     respond_to do |format|
@@ -62,8 +59,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # PUT /orders/1
-  # PUT /orders/1.json
   def update
     @order = Order.find(params[:id])
 
@@ -78,8 +73,6 @@ class OrdersController < ApplicationController
     end
   end
 
-  # DELETE /orders/1
-  # DELETE /orders/1.json
   def destroy
     @order = Order.find(params[:id])
     @order.destroy

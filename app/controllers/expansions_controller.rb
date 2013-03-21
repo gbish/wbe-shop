@@ -1,7 +1,8 @@
 class ExpansionsController < ApplicationController
+  # Making sure users are authenticated as an admin to 
+  # view the actions in this controller, except the show action
   before_filter :authenticate_admin!, :except => [:show]
-  # GET /expansions
-  # GET /expansions.json
+
   def index
     @expansions = Expansion.page(params[:page]).per(15)
 
@@ -11,8 +12,6 @@ class ExpansionsController < ApplicationController
     end
   end
 
-  # GET /expansions/1
-  # GET /expansions/1.json
   def show
     @expansion = Expansion.find(params[:id])
     @products = Product.where("expansion_id = ?", params[:id]).page(params[:page]).per(9)
@@ -23,8 +22,6 @@ class ExpansionsController < ApplicationController
     end
   end
 
-  # GET /expansions/new
-  # GET /expansions/new.json
   def new
     @expansion = Expansion.new
 
@@ -34,13 +31,10 @@ class ExpansionsController < ApplicationController
     end
   end
 
-  # GET /expansions/1/edit
   def edit
     @expansion = Expansion.find(params[:id])
   end
 
-  # POST /expansions
-  # POST /expansions.json
   def create
     @expansion = Expansion.new(params[:expansion])
 
@@ -55,8 +49,6 @@ class ExpansionsController < ApplicationController
     end
   end
 
-  # PUT /expansions/1
-  # PUT /expansions/1.json
   def update
     @expansion = Expansion.find(params[:id])
 
@@ -71,8 +63,6 @@ class ExpansionsController < ApplicationController
     end
   end
 
-  # DELETE /expansions/1
-  # DELETE /expansions/1.json
   def destroy
     @expansion = Expansion.find(params[:id])
     @expansion.destroy

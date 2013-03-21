@@ -1,6 +1,7 @@
+# This is a very generic controller, this was produced by
+# generating a scaffold from the command line: rails g scaffold carts ...
+
 class CartsController < ApplicationController
-  # GET /carts
-  # GET /carts.json
   def index
     @carts = Cart.all
 
@@ -10,8 +11,9 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/1
-  # GET /carts/1.json
+  # This method has had been modified somewhat
+  # Tries to find a cart, if it doesn't exist the user is redirected to the home page
+  # Otherwise it renders out the page
   def show
     begin
       @cart = Cart.find(params[:id])
@@ -26,8 +28,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/new
-  # GET /carts/new.json
   def new
     @cart = Cart.new
 
@@ -37,13 +37,10 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/1/edit
   def edit
     @cart = Cart.find(params[:id])
   end
 
-  # POST /carts
-  # POST /carts.json
   def create
     @cart = Cart.new(params[:cart])
 
@@ -58,8 +55,6 @@ class CartsController < ApplicationController
     end
   end
 
-  # PUT /carts/1
-  # PUT /carts/1.json
   def update
     @cart = Cart.find(params[:id])
 
@@ -73,9 +68,9 @@ class CartsController < ApplicationController
       end
     end
   end
-
-  # DELETE /carts/1
-  # DELETE /carts/1.json
+  
+  # Gets the current cart id, then destroys it
+  # nils out the current session as well to remove all trace
   def destroy
     @cart = current_cart
     @cart.destroy

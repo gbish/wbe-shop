@@ -1,8 +1,12 @@
+# This is a very generic controller
+
 class CategoriesController < ApplicationController
+  # Making sure users are authenticated as an admin to 
+  # view the actions in this controller, except the show action
   before_filter :authenticate_admin!, :except => [:show]
-  # GET /categories
-  # GET /categories.json
+
   def index
+    # paginate the results, 15 per page (all pagination takes this form)
     @categories = Category.page(params[:page]).per(15)
 
     respond_to do |format|
@@ -11,10 +15,11 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # GET /categories/1
-  # GET /categories/1.json
   def show
+    # get the category object for the passed ID
     @category = Category.find(params[:id])
+    # get all the products where the category_id (foreign key) 
+    # is the same as the passed ID, then paginate results, 9 per page
     @products = Product.where("category_id = ?", params[:id]).page(params[:page]).per(9)
 
     respond_to do |format|
@@ -23,8 +28,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # GET /categories/new
-  # GET /categories/new.json
   def new
     @category = Category.new
 
@@ -34,13 +37,10 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
   end
 
-  # POST /categories
-  # POST /categories.json
   def create
     @category = Category.new(params[:category])
 
@@ -55,8 +55,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # PUT /categories/1
-  # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
 
@@ -71,8 +69,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  # DELETE /categories/1
-  # DELETE /categories/1.json
   def destroy
     @category = Category.find(params[:id])
     @category.destroy

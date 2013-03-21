@@ -1,7 +1,11 @@
+// hide the element with the 'notice' class with the blind animation
 $('.notice').hide('blind', 500);
 
+// if there is 1 table row in the #cart element, show it with the blind animation
 if ($('#cart tr').length == 1) { $('#cart').show('blind', 500); }
 
+// render the @cart object in the #cart element
 $('#cart').html("<%= escape_javascript render(@cart) %>");
 
+// highlight the current item being added to the the shopping cart
 $('#current_item').css({'background-color':'#DB873E'}).animate({'background-color':'#fff'}, 1000);

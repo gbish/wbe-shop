@@ -1,14 +1,8 @@
 class ProductsController < ApplicationController
-  before_filter :form_data, :only => [:new, :edit, :create, :update]
+  # Making sure users are authenticated as an admin to 
+  # view the actions in this controller, except the show action
   before_filter :authenticate_admin!, except: [:show]
-  
-  def form_data
-    @cats = Category.all.map { |c| c.name }
-    @exps = Expansion.all.map { |m| m.name }
-  end
-  
-  # GET /products
-  # GET /products.json
+
   def index
     @products = Product.page(params[:page]).per(15)
 
@@ -18,8 +12,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1
-  # GET /products/1.json
+  # Tries to find a product by a passed ID
+  # If no record was found, and error is thrown and the user is 
+  # redirected to the home page, else the page is rendered normally
   def show
     begin
       @product = Product.find(params[:id])
@@ -34,8 +29,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/new
-  # GET /products/new.json
   def new
     @product = Product.new
 
@@ -45,13 +38,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  # GET /products/1/edit
   def edit
     @product = Product.find(params[:id])
   end
 
-  # POST /products
-  # POST /products.json
   def create
     @product = Product.new(params[:product])
 
@@ -66,8 +56,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # PUT /products/1
-  # PUT /products/1.json
   def update
     @product = Product.find(params[:id])
 
@@ -82,8 +70,6 @@ class ProductsController < ApplicationController
     end
   end
 
-  # DELETE /products/1
-  # DELETE /products/1.json
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

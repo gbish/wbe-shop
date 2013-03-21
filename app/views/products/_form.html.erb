@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description, :rows => 6 %>
   </div>
   <div class="field">
     <%= f.file_field :image %>
   </div>
   <div class="field">
-    <%= f.label :price %><br />
+    <%= f.label :price %>
     <%= f.text_field :price %>
   </div>
 	<div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
 		<%= f.collection_select(:category_id, @categories, :id, :name) %>
   </div>
 	<div class="field">
-    <%= f.label :expansion %><br />
+    <%= f.label :expansion %>
 		<%= f.collection_select(:expansion_id, @expansions, :id, :name) %>
   </div>
   <div class="actions">

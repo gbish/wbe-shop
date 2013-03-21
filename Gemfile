@@ -2,17 +2,23 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
+# local development db
 gem 'sqlite3'
 
+# authentication gem
 gem 'devise'
 
+# file uploads gem
 gem 'carrierwave'
 
+# pagination gem
 gem 'kaminari'
 
+# db indexing gem, using solr
 gem 'sunspot_rails'
 
 group :development do
+  # local solr for dev use
   gem 'sunspot_solr'
 end
 
@@ -27,4 +33,5 @@ end
 
 gem 'jquery-rails'
 
+# unicorn webserver gem
 gem 'unicorn'

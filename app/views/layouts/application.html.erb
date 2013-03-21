@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- inserting the value of the title helper method into the layout -->
 	<title>The Mythic Shop - <%= yield :title %></title>
+	<!-- loads in all the stylesheets -->
   <%= stylesheet_link_tag "application", :media => "all" %>
+	<!-- produces a Cross Site Request Forgery meta tag to make sure request are legit -->
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
 	<section id="user_bar">
 		<section class="wrapper">
+			<!-- renders the user navigation at the top of the page -->
 			<%= render 'layouts/user_nav' %>
 		</section>
 	</section>
@@ -17,6 +21,7 @@
 				<%= link_to 'The Mythic Shop', :root %>
 			</div>
 			<div class="search">
+				<!-- search form generation -->
 				<%= form_tag search_path, method: :get do %>
 					<div>
 						<%= text_field_tag :term, params[:term], id: 'autocomplete' %>
@@ -26,28 +31,33 @@
 			</div>
 		</section>
 	</header>
-	<section>
-		<% if flash[:notice].present? %>
-			<section class="msg notice">
-				<p class="wrapper"><%= flash[:notice] %></p>
-			</section>
-		<% elsif flash[:alert].present? %>
-			<section class="msg alert">
-				<p class="wrapper"><%= flash[:alert] %></p>
-			</section>
-		<% end %>
-	</section>
+	<!-- shows messages from the system to the user if they exist -->
+	<% if flash[:notice].present? %>
+		<section class="msg notice">
+			<p class="wrapper"><%= flash[:notice] %></p>
+		</section>
+	<% elsif flash[:alert].present? %>
+		<section class="msg alert">
+			<p class="wrapper"><%= flash[:alert] %></p>
+		</section>
+	<% end %>
 	<section class="container">		
 		<section class="wrapper">
 			<section id="left">
+				<!-- if the @cart object is available to the view -->
 				<% if @cart %>
+					<!-- show the shopping cart -->
 					<%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+						<!-- render the cart partial, specifying the path to the partial 
+						and the passed object to avoid a conflict with the devise gem -->
 						<%= render partial: 'carts/cart', object: @cart %>
 					<% end %>
 				<% end %>
+				<!-- render the menu partial -->
 				<%= render 'layouts/menu' %>
 			</section>
 			<section id="main">
+				<!-- render the contents of the current view -->
 				<%= yield %>
 			</section>
 		</section>
@@ -57,12 +67,14 @@
 			<section>
 				<h3>Categories</h3>
 				<ul>
+					<!-- render the categories list -->
 					<%= render 'layouts/categories' %>
 				</ul>
 			</section>
 			<section>
 				<h3>Expansions</h3>
 				<ul>
+					<!-- render the expansions list -->
 					<%= render 'layouts/expansions' %>
 				</ul>
 			</section>
@@ -72,6 +84,8 @@
 			</section>
 		</section>
 	</footer>
+	<!-- insert the javascript files into the view,
+	these are inserted last to improve page performance -->
 	<%= javascript_include_tag "application" %>
 </body>
 </html>
