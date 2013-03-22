@@ -9,7 +9,7 @@ set :repository,  "git@github.com:gbish/wbe-shop.git"
 set :scm_passphrase, ""
 
 set :shell, '/bin/bash'
-default_environment["PATH"] = "$PATH:/data/opt/ruby/bin/"
+default_environment["PATH"] = "/data/opt/node/bin:/data/opt/ruby/bin/:/usr/local/bin:/bin:/usr/bin:$PATH"
 
 set :user, "web"
 
