@@ -1,4 +1,4 @@
-.registrations, .sessions, .passwords, .orders, .products, .categories, .expansions {
+.registrations, .sessions, .passwords, .orders, .products, .categories, .expansions, .home {
 	form {
 		font-size: 20px;
 		.vis, .field {
@@ -43,6 +43,9 @@
 		&:hover {
 			color: #DB873E;
 		}
+	}
+	.cta input[type="submit"] {
+		margin: 0;
 	}
 }
 
