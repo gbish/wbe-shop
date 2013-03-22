@@ -8,6 +8,9 @@ set :scm, :git
 set :repository,  "git@github.com:gbish/wbe-shop.git"
 set :scm_passphrase, ""
 
+set :shell, '/bin/bash'
+default_environment["PATH"] = "$PATH:/data/opt/ruby/bin/"
+
 set :user, "web"
 
 set :use_sudo, false
