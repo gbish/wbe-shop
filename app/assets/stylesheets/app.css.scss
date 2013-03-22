@@ -224,6 +224,12 @@ p {
 	}
 }
 
+.categories, .expansions {
+	span + h1 {
+		border: 0;
+	}
+}
+
 a.button, input[type="submit"].button {
 	color: #666;
 	text-decoration: none;
